@@ -43,18 +43,6 @@ K = [ 0  1 0
       0  0 0
       0 -1 0 ]
 
-
-Implementation details:
-  Initially, process 0 reads the data in the picture and sends it to others
-the dimensions of the matrices they will receive, and the type of image.
-Process 0 splits the pixel array, sends a submatrix to
-the other each process and apply the current filter to its portion of
-the original matrix.
-  The other processes wait in the first phase to receive the number of lines
-and the columns of the matrices they will receive as well as the type of the image.
-Next, each process expects to receive the pixel matrix,
-apply the filter on it and send it back to process 0.
-
 Usage:
   your@Desktop$ make
   your@Desktop$ mpirun -np nrProcs ./homework image_in.pnm image_out.pnm filter1 filter2 ... filterX
